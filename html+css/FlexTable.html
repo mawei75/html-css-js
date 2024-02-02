@@ -1,0 +1,195 @@
+<!--
+ * @Description: 
+ * @Version: 
+ * @Author: pretender
+ * @Date: 2021-06-04 16:36:43
+ * @LastEditors: pretender
+ * @LastEditTime: 2021-06-04 18:17:10
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>用flex布局做自定义表格</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      border: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      padding: 10px;
+    }
+
+    div {
+      min-height: 40px;
+    }
+
+    .wrapper {
+      width: 100%;
+      height: 100%;
+      /* border-left: 1px solid #3297fa;
+            border-right: 1px solid #3297fa; */
+    }
+
+    .header {
+      display: flex;
+      border: 1px solid #3297fa;
+    }
+
+    .left {
+      width: 30%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-right: 1px solid #3297fa;
+    }
+
+    .right {
+      flex: 1;
+      display: flex;
+    }
+
+    .col-left {
+      width: 40%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-right: 1px solid #3297fa;
+    }
+
+    .col-right {
+      flex: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    .main-row {
+      width: 100%;
+      display: flex;
+      border-left: 1px solid #3297fa;
+      border-right: 1px solid #3297fa;
+      border-bottom: 1px solid #3297fa;
+    }
+
+    .main-col:nth-child(1) {
+      width: 30%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-right: 1px solid #3297fa;
+    }
+
+    .main-col:nth-child(2) {
+      flex: 1;
+    }
+
+    .main-col-sub {
+      display: flex;
+    }
+
+    .main-col-sub-middle {
+      width: 40%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-right: 1px solid #3297fa;
+      border-bottom: 1px solid #3297fa;
+    }
+
+    .main-col-sub:last-child .main-col-sub-middle {
+      border-bottom: 0;
+    }
+
+    .main-col-sub-right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      border-bottom: 1px solid #3297fa;
+    }
+
+    .main-col-sub:last-child .main-col-sub-right {
+      border-bottom: 0;
+    }
+
+    .url {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #3297fa;
+    }
+
+    .main-col-sub-right .url:last-child {
+      border-bottom: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="header">
+      <div class="header-item left">系统分类</div>
+      <div class="header-item right">
+        <div class="col-left">环境分类</div>
+        <div class="col-right">测试地址</div>
+      </div>
+    </div>
+    <div class="main">
+      <div class="main-row">
+        <div class="main-col">综合平台</div>
+        <div class="main-col">
+
+          <div class="main-col-sub">
+            <div class="main-col-sub-middle">测试环境</div>
+            <div class="main-col-sub-right">
+              <div class="url">内容</div>
+              <div class="url">内容</div>
+            </div>
+          </div>
+          <div class="main-col-sub">
+            <div class="main-col-sub-middle">正式环境</div>
+            <div class="main-col-sub-right">
+              <div class="url">内容</div>
+              <div class="url">内容</div>
+              <div class="url">内容</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main-row">
+        <div class="main-col">系统A</div>
+        <div class="main-col">
+          <div class="main-col-sub">
+            <div class="main-col-sub-middle">测试环境</div>
+            <div class="main-col-sub-right">
+              <div class="url">内容</div>
+              <div class="url">内容</div>
+              <div class="url">内容</div>
+              <div class="url">内容</div>
+            </div>
+          </div>
+          <div class="main-col-sub">
+            <div class="main-col-sub-middle">线上环境</div>
+            <div class="main-col-sub-right">
+              <div class="url">内容</div>
+              <div class="url">内容</div>
+              <div class="url">内容</div>
+              <div class="url">内容</div>
+              <div class="url">内容</div>
+              <div class="url">内容</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

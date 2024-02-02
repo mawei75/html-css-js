@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>利用css样式产生多种形状</title>
+  <style>
+    .wrapper {
+      display: flex;
+      flex-flow: row wrap;
+    }
+
+    .item {
+      width: 20%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .item::after {
+      content: "";
+      display: block;
+      margin-bottom: 100%;
+    }
+
+    .inner1 {
+      position: relative;
+      width: 60px;
+      height: 60px;
+      background-color: gray;
+
+      &::before {
+        position: absolute;
+        content: '';
+        border-top: 30px solid transparent;
+        border-left: 30px solid transparent;
+        border-right: 30px solid transparent;
+        border-bottom: 30px solid red;
+      }
+    }
+
+    .inner2 {
+      position: relative;
+      width: 60px;
+      height: 60px;
+      background-color: gray;
+
+      &::before {
+        position: absolute;
+        content: '';
+        border-top: 30px solid red;
+        border-left: 30px solid transparent;
+        border-right: 30px solid transparent;
+        border-bottom: 30px solid red;
+      }
+
+    }
+
+    .inner3 {
+      position: relative;
+      width: 60px;
+      height: 60px;
+      background-color: gray;
+
+      &::before {
+        position: absolute;
+        bottom: 30px;
+        content: '';
+        border-top: 30px solid transparent;
+        border-left: 30px solid transparent;
+        border-right: 30px solid transparent;
+        border-bottom: 30px solid red;
+      }
+
+      &::after {
+        position: absolute;
+        top: 30px;
+        content: '';
+        border-top: 30px solid red;
+        border-left: 30px solid transparent;
+        border-right: 30px solid transparent;
+        border-bottom: 30px solid transparent;
+      }
+    }
+
+    .inner4 {
+      position: relative;
+      width: 0;
+      height: 0;
+      border-bottom: 60px solid red;
+      border-left: 30px solid transparent;
+      border-right: 30px solid transparent;
+
+      &::after {
+        position: absolute;
+        content: '';
+        border-top: 60px solid red;
+        border-left: 30px solid transparent;
+        border-right: 30px solid transparent;
+      }
+    }
+
+    .inner5 {
+      position: relative;
+      width: 0;
+      height: 0;
+      border-bottom: calc(30px * 1.732) solid red;
+      border-left: 30px solid transparent;
+      border-right: 30px solid transparent;
+      border-top: calc(30px * 1.732) solid transparent;
+
+      &::after {
+        position: absolute;
+        left: -30px;
+        top: 15px;
+        content: '';
+        border-top: calc(30px * 1.732) solid red;
+        border-left: 30px solid transparent;
+        border-right: 30px solid transparent;
+        border-bottom: calc(30px * 1.732) solid transparent;
+      }
+    }
+
+    .inner6 {
+      position: relative;
+      width: 0;
+      height: 0;
+      border-top: 30px solid transparent;
+      border-right: 30px solid red;
+      transform: rotate(10deg);
+
+      &::after {
+        content: "";
+        position: absolute;
+        border: 0 solid transparent;
+        border-top: 15px solid red;
+        border-radius: 30px 0 0 0;
+        top: -30px;
+        left: -15px;
+        width: 30px;
+        height: 30px;
+        transform: rotate(45deg);
+      }
+    }
+
+    .inner7 {
+      width: 60px;
+      height: 0;
+      border-bottom: 20px solid red;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+    }
+
+    .inner8 {
+      position: relative;
+      width: 60px;
+      height: 0;
+      border-bottom: 20px solid red;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+
+      &::after {
+        position: absolute;
+        left: -10px;
+        top: 20px;
+        content: '';
+        border-top: 60px solid red;
+        border-left: 40px solid transparent;
+        border-right: 40px solid transparent;
+      }
+    }
+
+    .inner9 {
+      /* margin: 50px 0; */
+      position: relative;
+      display: block;
+      color: red;
+      width: 0px;
+      height: 0px;
+      border-right: 60px solid transparent;
+      border-bottom: 42px solid red;
+      border-left: 60px solid transparent;
+      transform: rotate(35deg);
+
+      &::before {
+        border-bottom: 60px solid red;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        position: absolute;
+        height: 0;
+        width: 0;
+        top: -30px;
+        left: -42px;
+        display: block;
+        content: '';
+        transform: rotate(-35deg);
+      }
+
+      &::after {
+        position: absolute;
+        display: block;
+        color: red;
+        top: 5px;
+        left: -67px;
+        width: 0px;
+        height: 0px;
+        transform: rotate(-72deg);
+        content: "";
+        border-right: 60px solid transparent;
+        border-bottom: 42px solid red;
+        border-left: 60px solid transparent;
+      }
+    }
+
+    .inner10 {
+      position: relative;
+      width: 212px;
+      height: 100px;
+    }
+
+    .inner10:before,
+    .inner10:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 60px;
+      height: 60px;
+      border: 20px solid red;
+      border-radius: 50px 50px 0 50px;
+
+      transform: rotate(-45deg);
+    }
+
+    .inner10:after {
+      left: auto;
+      right: 0;
+      border-radius: 50px 50px 50px 0;
+
+      transform: rotate(45deg);
+    }
+
+    .inner11 {
+      background: red;
+      width: 80px;
+      height: 80px;
+      position: relative;
+      text-align: center;
+    }
+
+    .inner11:before,
+    .inner11:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 80px;
+      width: 80px;
+      background: red;
+    }
+
+    .inner11:before {
+
+      transform: rotate(30deg);
+    }
+
+    .inner11:after {
+
+      transform: rotate(60deg);
+    }
+
+    .inner12 {
+      width: 96px;
+      height: 48px;
+      background: #eee;
+      border-color: red;
+      border-style: solid;
+      border-width: 2px 2px 50px 2px;
+      border-radius: 100%;
+      position: relative;
+    }
+
+    .inner12:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      background: #eee;
+      border: 18px solid red;
+      border-radius: 100%;
+      width: 12px;
+      height: 12px;
+    }
+
+    .inner12:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background: red;
+      border: 18px solid #eee;
+      border-radius: 100%;
+      width: 12px;
+      height: 12px;
+    }
+
+    .inner13 {
+      position: relative;
+      width: 60px;
+      height: 60px;
+      background-color: red;
+      transform: rotate(-45deg);
+
+      &::before {
+        position: absolute;
+        left: 0;
+        top: -30px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        content: '';
+        background-color: red;
+      }
+
+      &::after {
+        position: absolute;
+        right: -30px;
+        bottom: 0;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        content: '';
+        background-color: red;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="item">
+      <div class="inner1"></div>
+    </div>
+    <div class="item">
+      <div class="inner2"></div>
+    </div>
+    <div class="item">
+      <div class="inner3"></div>
+    </div>
+    <div class="item">
+      <div class="inner4"></div>
+    </div>
+    <div class="item">
+      <div class="inner5"></div>
+    </div>
+    <div class="item">
+      <div class="inner6"></div>
+    </div>
+    <div class="item">
+      <div class="inner7"></div>
+    </div>
+    <div class="item">
+      <div class="inner8"></div>
+    </div>
+    <div class="item">
+      <div class="inner9"></div>
+    </div>
+    <div class="item">
+      <div class="inner10"></div>
+    </div>
+    <div class="item">
+      <div class="inner11"></div>
+    </div>
+    <div class="item">
+      <div class="inner12"></div>
+    </div>
+    <div class="item">
+      <div class="inner13"></div>
+    </div>
+  </div>
+</body>
+
+</html>

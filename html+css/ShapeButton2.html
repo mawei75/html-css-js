@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>异形的按钮2</title>
+  <style>
+    .skew {
+      position: relative;
+      width: 220px;
+      height: 64px;
+    }
+
+    .skew::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 10px 32px 32px 10px;
+      background:linear-gradient(90deg, red, rgb(255, 94, 0), transparent);
+      transform: skewX(15deg);
+    }
+
+    .skew::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: -13px;
+      width: 200px;
+      height: 64px;
+      border-radius: 32px;
+      background: rgb(255, 94, 0);
+    }
+    .content {
+      position: absolute;
+      z-index: 2;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="skew">
+    <div class="content">aaa</div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BoxShadow阴影</title>
+  <style>
+    .wrapper {
+      display: flex;
+      flex-flow: row wrap;
+    }
+
+    .item {
+      width: 20%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .item::after {
+      content: "";
+      display: block;
+      margin-bottom: 100%;
+    }
+
+    .shadow {
+      width: 200px;
+      height: 200px;
+      border-radius: 10px;
+      background-color: red;
+      position: relative;
+    }
+
+    .inner1 {
+      /* 左阴影 */
+      box-shadow: -10px 0 20px -10px blue;
+    }
+
+    .inner2 {
+      /* 上阴影 */
+      box-shadow: 0 -10px 20px -10px blue;
+    }
+
+    .inner3 {
+      /* 右阴影 */
+      box-shadow: 10px 0 20px -10px blue;
+    }
+
+    .inner4 {
+      /* 下阴影 */
+      box-shadow: 0 10px 20px -10px blue;
+    }
+
+    .inner5 {
+      /* 左上阴影 */
+      box-shadow: -10px -10px 20px -10px blue;
+    }
+
+    .inner6 {
+      /* 右上阴影 */
+      box-shadow: 10px -10px 20px -10px blue;
+
+    }
+
+    .inner7 {
+      /* 左下阴影 */
+      box-shadow: -10px 10px 20px -10px blue;
+    }
+
+    .inner8 {
+      /* 右下阴影 */
+      box-shadow: 10px 10px 20px -10px blue;
+    }
+
+    .inner9 {
+      /* 无下阴影，左上阴影 + 右上阴影，但是由于阴影重叠，所以Y轴阴影需要减少一半 */
+      box-shadow: -10px -5px 20px -10px blue, 10px -5px 20px -10px blue;
+    }
+
+    .inner10 {
+      /* 无上阴影，左下阴影 + 右下阴影，但是由于阴影重叠，所以Y轴阴影需要减少一半 */
+      box-shadow: -10px 5px 20px -10px blue, 10px 5px 20px -10px blue;
+    }
+
+    .inner11 {
+      /* 无右阴影，左上阴影 + 左下阴影，但是由于阴影重叠，所以X轴阴影需要减少一半 */
+      box-shadow: -5px -10px 20px -10px blue, -5px 10px 20px -10px blue;
+    }
+
+    .inner12 {
+      /* 无左阴影，右上阴影 + 右下阴影，但是由于阴影重叠，所以X轴阴影需要减少一半 */
+      box-shadow: 5px -10px 20px -10px blue, 5px 10px 20px -10px blue;
+    }
+
+    .inner13 {
+      &::before {
+        position: absolute;
+        width: 100px;
+        height: 200px;
+        content: "";
+        left: 0;
+        top: 0;
+        box-shadow: -10px 0 20px -10px blue;
+        border-radius: 10px;
+      }
+
+      &::after {
+        position: absolute;
+        width: 100px;
+        height: 200px;
+        content: "";
+        right: 0;
+        top: 0;
+        box-shadow: 10px 0 20px -10px blue;
+        border-radius: 10px;
+      }
+    }
+
+    .wrapper2 {
+      margin-left: 200px;
+      width: 200px;
+      height: 200px;
+      border-radius: 10px;
+      background-color: red;
+      border-top: 1px solid #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="item">
+      <div class="shadow inner1"></div>
+    </div>
+    <div class="item">
+      <div class="shadow inner2"></div>
+    </div>
+    <div class="item">
+      <div class="shadow inner3"></div>
+    </div>
+    <div class="item">
+      <div class="shadow inner4"></div>
+    </div>
+    <div class="item">
+      <div class="shadow inner5"></div>
+    </div>
+    <div class="item">
+      <div class="shadow inner6"></div>
+    </div>
+    <div class="item">
+      <div class="shadow inner7"></div>
+    </div>
+    <div class="item">
+      <div class="shadow inner8"></div>
+    </div>
+    <div class="item">
+      <div class="shadow inner9"></div>
+    </div>
+    <div class="item">
+      <div class="shadow inner10"></div>
+    </div>
+    <div class="item">
+      <div class="shadow inner11"></div>
+    </div>
+    <div class="item">
+      <div class="shadow inner12"></div>
+    </div>
+    <div class="item">
+      <div class="shadow inner13"></div>
+    </div>
+  </div>
+</body>
+
+</html>

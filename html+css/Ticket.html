@@ -1,0 +1,79 @@
+<!--
+ * @Description: 
+ * @Version: 
+ * @Author: pretender
+ * @Date: 2021-04-16 15:13:07
+ * @LastEditors: pretender
+ * @LastEditTime: 2021-04-16 16:28:31
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>票据样式</title>
+    <style>
+        .ticket {
+            width: 400px;
+            height: 180px;
+            margin: 100px auto 0;
+            background-color: antiquewhite;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .ticket-left,
+        .ticket-right {
+            position: relative;
+            width: 30px;
+            height: 100%;
+        }
+
+        .ticket-center {
+            flex: 1;
+            border-left: 10px dashed white;
+            border-right: 10px dashed white;
+            color: #fff;
+            font-size: 40px;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        .ticket-left::before {
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 6px;
+            left: 0;
+            top: 0;
+            background-image: radial-gradient(circle at 0 10px,white  6px, antiquewhite 6px);
+            background-size: 7px 20px;
+            /* transform: rotate(180deg); */
+        }
+
+        .ticket-right::after {
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 6px;
+            right: 0;
+            top: 0;
+            background-image: radial-gradient(circle at 0px 10px,white  6px, antiquewhite 6px);
+            background-size: 6px 20px;
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ticket">
+        <div class="ticket-left"></div>
+        <div class="ticket-center">优惠5元</div>
+        <div class="ticket-right"></div>
+    </div>
+</body>
+
+</html>
