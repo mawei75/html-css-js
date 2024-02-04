@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>quotes的作用</title>
+  <style>
+    .box {
+      quotes: "(" ")" "《" "》";
+    }
+    .box::before {
+      content: open-quote;
+    }
+    .box::after {
+      content: close-quote;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="box">葫芦娃</div>
+    <div class="box">黑猫警长</div>
+    <div class="box">少年英雄小哪吒</div>
+  </div>
+</body>
+</html>

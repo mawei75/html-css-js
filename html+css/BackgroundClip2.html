@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文字背景动画</title>
+  <style>
+    #wrap {
+      background-color: black;
+      width: 500px;
+      height: 500px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .box0 {
+      background: url(./images/1.jpeg) no-repeat;
+    }
+
+    .box1 {
+      background: url(./images/2.png) no-repeat;
+    }
+
+    .box2 {
+      background: url(./images/3.jpeg) no-repeat;
+    }
+
+    #box {
+      width: 500px;
+      height: 500px;
+      font-size: 150px;
+      margin: 0 auto;
+      background-size: 500px 500px;
+      background-position: center;
+      background-clip: text;
+      -webkit-text-fill-color: rgba(0, 0, 0, 0.2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .text {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="wrap">
+    <div id="box" >
+      <!-- <span class="text">①</span>
+      <span class="text">②</span>
+      <span class="text">③</span> -->
+      <span class="text">◤</span>
+      <span class="text">◢</span>
+      <span class="text">✿</span>
+    </div>
+  </div>
+  <script>
+    const oBox = document.getElementById("box");
+    const textArr = document.getElementsByClassName("text")
+    let i = 0;
+    let n = 800;
+    setInterval(() => {
+      oBox.style.fontSize = n + 'px';
+      n += 3
+      if (n > 800) {
+        n = 10;
+        textArr[1].style.display = 'none';
+        textArr[2].style.display = 'none';
+        textArr[0].style.display = 'none';
+        textArr[i].style.display = 'block';
+        oBox.classList.remove("box0")
+        oBox.classList.remove("box1")
+        oBox.classList.remove("box2")
+        oBox.classList.add(`box${i}`)
+        i++
+        if (i > 2) {
+          i = 0
+        }
+      }
+    }, 5)
+  </script>
+</body>
+
+</html>
